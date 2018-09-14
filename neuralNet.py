@@ -5,7 +5,7 @@ import win32com.client as w
 spk = w.Dispatch("SAPI.SpVoice")
 
 
-
+# this is datasets of flowers type (1 for red and 0 for blue ) 
 data = [
     [1, 1, 0],
     [2, 1,   0],
@@ -56,7 +56,7 @@ for i in range(50000):
 
     dcost_dpred = (pred - target) * 2
 
-    dpred_dz = sigmoid(z) * (1-sigmoid(z))
+    dpred_dz = sigmoid(z) * (1-sigmoid(z)) 
 
     dz_dw1 = point[0]
     dz_dw2 = point[1]
@@ -70,6 +70,7 @@ for i in range(50000):
     w1 = w1 - learning_rate * dcost_dw1
     w2 = w2 - learning_rate * dcost_dw2
     b = b - learning_rate * dcost_db
+# plotting error 
 pyplot.figure(2)
 pyplot.plot(costs)
 
